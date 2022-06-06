@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scheduler</title>
+    <style>
+        body {
+            background-color: #222222;
+        }
+
+        .login-form {
+            display: flex;
+            box-sizing: content-box;
+            flex-direction: column;
+            /* border: 2px solid red; */
+            padding: 10vh 20vh;
+            align-items: center;
+        }
+
+        .login-form form {
+            display: flex;
+            flex-direction: column;
+            justify-items: center;
+            align-items: center;
+            width: 50vw;
+            background-color: #383838;
+            padding: 25px 0;
+            border-radius: 15px;
+        }
+
+        .login-form form label,
+        input,
+        span {
+            margin: 10px 0;
+            color: #fff;
+        }
+
+        .login-form form textarea {
+            display: block;
+            font-size: 20px;
+            color: #383838;
+            height: 190px;
+            width: 600px;
+        }
+
+        .form-input input {
+            box-sizing: content-box;
+            display: block;
+            padding: 16px;
+            font-size: 18px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            color: #383838;
+        }
+
+        .form-input select {
+            box-sizing: content-box;
+            display: block;
+            padding: 16px;
+            font-size: 18px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            color: #383838;
+        }
+
+        .btn-2 {
+            height: 50px;
+            margin: 15px 0;
+            background-color: #992db7;
+            border: none;
+            border-radius: 6px;
+            color: #fff;
+            font-size: larger;
+            grid-column: 1/span 2;
+        }
+
+        .btn-2:hover {
+            cursor: pointer;
+            background-color: #76238e;
+        }
+
+        @media only screen and (max-width:600px) {
+            .login-form {
+                padding: 10vh 5vw;
+            }
+
+            .login-form form textarea {
+                width: 90vw;
+            }
+        }
+
+        @media only screen and (max-width:770px) {
+            .login-form form {
+                width: 380px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="login-form">
+        <form class="form-input" action="" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class="btn-2">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>

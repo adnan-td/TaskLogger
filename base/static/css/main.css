@@ -1,0 +1,157 @@
+/* body {
+  min-height: 100vh;
+} */
+
+.body-sub {
+  min-height: 100vh;
+  /* background-color: #333; */
+}
+
+.nav-link {
+  text-align: center;
+}
+
+.nav-button {
+  justify-content: center;
+  display: flex;
+}
+
+.p-4 {
+  padding: 1rem !important;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 20px;
+  grid-gap: 10px;
+}
+
+.card {
+  border: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.ch1 {
+  background-color: #444;
+  color: #fff;
+}
+
+.pe .ch1 {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  height: 41px;
+}
+
+.pe .ch1 a {
+  color: #fff;
+  font-size: 23px;
+  position: relative;
+  top: -5px;
+}
+
+.ch2 {
+  background-color: #2d90b7;
+  color: #fff;
+}
+
+.ch3 {
+  background-color: #4bb72d;
+  color: #fff;
+}
+
+/* .sp {} */
+
+.today {
+  grid-row: 1 / 3;
+}
+
+.pe {
+  grid-row: 1 / 3;
+}
+
+strong {
+  font-weight: inherit;
+  color: #555;
+}
+
+.user-i span {
+  color: #992db7;
+}
+
+.a-se {
+  min-width: 125px;
+}
+
+.btn-primary:hover {
+  background-color: inherit;
+  border-color: inherit;
+}
+
+.btn-check:focus + .btn-primary,
+.btn-primary:focus {
+  background-color: inherit;
+  border-color: inherit;
+  box-shadow: none;
+}
+
+@media only screen and (max-width: 1140px) {
+  .card-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (max-width: 865px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sp {
+    grid-row: auto;
+  }
+}
+
+@media only screen and (max-width: 590px) {
+  .card-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .today {
+    grid-row: auto;
+  }
+
+  .pe {
+    grid-row: auto;
+  }
+
+  .sp {
+    grid-row: auto;
+  }
+}
+
+.mb-0 {
+  margin: 10px 0;
+}
+
+.td-title {
+  max-width: 300px;
+  overflow: auto;
+}
+
+th {
+  color: #000;
+  font-weight: 300;
+  font-size: 17px;
+}
+
+table {
+  border-collapse: separate;
+  margin: -10px;
+}
+
+td i {
+  color: #2d90b7;
+}

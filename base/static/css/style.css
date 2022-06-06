@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rubik&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Rubik', sans-serif;
+}
+
+.body-login {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+.main-login {
+  min-height: 90vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.details h1 {
+  color: #992db7;
+  font-size: 65px;
+  font-family: 'Bebas Neue', cursive;
+}
+
+.details p {
+  display: flex;
+  width: 350px;
+  font-size: 30px;
+  /* text-align: center; */
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  box-sizing: content-box;
+  /* border: 2px solid red; */
+  padding: 20px;
+  background-color: #383838;
+  border-radius: 8px;
+}
+
+.login-form form {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+}
+
+.login-form form label,
+input,
+span {
+  margin: 10px 0;
+}
+
+.inform {
+  display: flex;
+  justify-content: center;
+}
+
+.foot {
+  height: 10vh;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  background-color: #383838;
+  text-align: center;
+}
+
+@media only screen and (max-width:710px) {
+  body {
+    overflow: auto;
+  }
+
+  .main-login {
+    height: 700px;
+  }
+
+  .foot {
+    height: 70px;
+    min-height: 0px;
+  }
+
+  .details h1 {
+    text-align: center;
+  }
+
+  .details p {
+    text-align: center;
+  }
+}

@@ -1,0 +1,289 @@
+{% extends 'base/main.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/forms.css' %}">
+{% endblock css %}
+
+{% block c %}
+<!-- Section Events Form -->
+<div class="form-main">
+  <div class="formaddscript">
+    <p class="add-mod">Details</p>
+    <form class="row g-3" action="" method="POST">
+      {% csrf_token %}
+      <div class="col-md-12">
+        <select class="form-select" aria-label="Default select example" id="formselect" name="name" required>
+          <option value="">Select the Day</option>
+          <option value="1">Monday</option>
+          <option value="2">Tuesday</option>
+          <option value="3">Wednesday</option>
+          <option value="4">Thursday</option>
+          <option value="5">Friday</option>
+          <option value="6">Saturday</option>
+          <option value="7">Sunday</option>
+          <option value="8">Special Events</option>
+        </select>
+      </div>
+      <div class="col-md-12">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingInput1" placeholder="Event Name" name="event_name"
+            required />
+          <label for="floatingInput1">Event Name</label>
+        </div>
+      </div>
+      <div class="col-md-12 hider" id="date-container">
+        <div class="form-floating">
+          <input type="date" class="form-control" id="floatingInput2" placeholder="Date" name="date" />
+          <label for="floatingInput2">Date</label>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-floating">
+          <input type="text" class="form-control time-pickable" id="floatingInput3" placeholder="Time" name="time"
+            required />
+          <label for="floatingInput3">Time</label>
+        </div>
+      </div>
+      <div class="form-buttons">
+        <div style="margin-right: 20px">
+          <button type="submit" class="btn btn-1">Add</button>
+        </div>
+        <div>
+          <button type="button" class="btn btn-2">Cancel</button>
+          <a href="{% url 'home' %}" id="cancel" class="hider"></a>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="card-container">
+    <div class="card">
+      <div class="card-header ch2">
+        Monday
+      </div>
+      <div class="card-body">
+        <table class="card-table table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Title</th>
+              <th scope="col">Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for event in mon %}
+            <tr>
+              <td><i class="fa-solid fa-arrows-to-dot"></i></td>
+              <td class="td-title">{{event.event_name}}</td>
+              <td>On {{event.time}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header ch2">
+        Tuesday
+      </div>
+      <div class="card-body">
+        <table class="card-table table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Title</th>
+              <th scope="col">Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for event in tue %}
+            <tr>
+              <td><i class="fa-solid fa-arrows-to-dot"></i></td>
+              <td class="td-title">{{event.event_name}}</td>
+              <td>On {{event.time}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header ch2">
+        Wednesday
+      </div>
+      <div class="card-body">
+        <table class="card-table table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Title</th>
+              <th scope="col">Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for event in wed %}
+            <tr>
+              <td><i class="fa-solid fa-arrows-to-dot"></i></td>
+              <td class="td-title">{{event.event_name}}</td>
+              <td>On {{event.time}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header ch2">
+        Thursday
+      </div>
+      <div class="card-body">
+        <table class="card-table table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Title</th>
+              <th scope="col">Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for event in thu %}
+            <tr>
+              <td><i class="fa-solid fa-arrows-to-dot"></i></td>
+              <td class="td-title">{{event.event_name}}</td>
+              <td>On {{event.time}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header ch2">
+        Friday
+      </div>
+      <div class="card-body">
+        <table class="card-table table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Title</th>
+              <th scope="col">Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for event in fri %}
+            <tr>
+              <td><i class="fa-solid fa-arrows-to-dot"></i></td>
+              <td class="td-title">{{event.event_name}}</td>
+              <td>On {{event.time}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header ch2">
+        Saturday
+      </div>
+      <div class="card-body">
+        <table class="card-table table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Title</th>
+              <th scope="col">Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for event in sat %}
+            <tr>
+              <td><i class="fa-solid fa-arrows-to-dot"></i></td>
+              <td class="td-title">{{event.event_name}}</td>
+              <td>On {{event.time}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header ch2">
+        Sunday
+      </div>
+      <div class="card-body">
+        <table class="card-table table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Title</th>
+              <th scope="col">Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for event in sun %}
+            <tr>
+              <td><i class="fa-solid fa-arrows-to-dot"></i></td>
+              <td class="td-title">{{event.event_name}}</td>
+              <td>On {{event.time}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card sp">
+      <div class="card-header ch3">
+        Special
+      </div>
+      <div class="card-body">
+        <table class="card-table table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Title</th>
+              <th scope="col">Date and Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for event in other %}
+            <tr>
+              <td><i class="fa-solid fa-arrows-to-dot"></i></td>
+              <td class="td-title">{{event.event_name}}</td>
+              <td>On {{event.date}}, {{event.time}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock c %}
+
+{% block javascript %}
+
+<script src="{% static 'js/forms.js' %}"></script>
+
+<script>
+  document.getElementById('n-1').classList.remove('active');
+  document.getElementById('n-2').classList.remove('active');
+  document.getElementById('n-3').classList.add('active');
+  activities = document.querySelector('.form-select');
+  if (activities.value == "8") {
+    document.getElementById('date-container').classList.remove('hider');
+  }
+  else document.getElementById('date-container').classList.add('hider');
+  activities.addEventListener("change", function () {
+    if (activities.value == "8") {
+      document.getElementById('date-container').classList.remove('hider');
+    }
+    else document.getElementById('date-container').classList.add('hider');
+  });
+
+</script>
+
+
+
+{% endblock javascript %}

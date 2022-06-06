@@ -1,0 +1,73 @@
+{% extends 'base/main.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/forms.css' %}">
+{% endblock css %}
+
+{% block c %}
+
+<!-- Personal Events Form -->
+<div class="form-main form-main-pe">
+  <div class="formaddscript">
+    <p class="add-mod">Details</p>
+    <form class="row g-3" action="" method="POST">
+      {% csrf_token %}
+      <div class="col-md-12">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingInput1" name="event_name" placeholder="Event Name"
+            required />
+          <label for="floatingInput1">Event Name</label>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-floating">
+          <input type="date" class="form-control" id="floatingInput2" name="date" placeholder="Date" required />
+          <label for="floatingInput2">Date</label>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-floating">
+          <input type="text" class="form-control time-pickable" id="floatingInput2" name="time" placeholder="Time"
+            required />
+          <label for="floatingInput2">Time</label>
+        </div>
+      </div>
+      <div class="form-buttons">
+        <div style="margin-right: 20px">
+          <button type="submit" class="btn btn-1">Add</button>
+        </div>
+        <div>
+          <button type="button" class="btn btn-2">Cancel</button>
+          <a href="{% url 'home' %}" id="cancel" class="hider"></a>
+        </div>
+
+      </div>
+    </form>
+  </div>
+  <div class="card-container card-container-pe">
+    <div class="card pe">
+      <div class="card-header ch1">
+        <p>Personal Events</p>
+        <a href="{% url 'student-events' student.id %}"><i class="fa-solid fa-square-pen"></i></a>
+      </div>
+      <div class="card-body">
+        <strong>Here are your Own Events- <br></strong>
+        <p class="card-text">
+          {% for event in studentpersonal %}
+          <hr>
+          <code>#</code> {{event.event_name}} <code>(On {{event.date}}, {{event.time}})</code>
+          <code><a href="{% url 'deletep' student.id event.id %}">(Delete)</a></code>
+          {% endfor %}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock c %}
+
+{% block javascript %}
+<script src="{% static 'js/forms.js' %}"></script>
+{% endblock javascript %}

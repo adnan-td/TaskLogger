@@ -1,0 +1,64 @@
+{% extends 'base/main.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/forms.css' %}">
+<style>
+  .btn-1 {
+    width: auto;
+  }
+</style>
+{% endblock css %}
+
+{% block c %}
+
+
+<div class="form-main form-main-pe">
+  <div class="formaddscript">
+    <p class="add-mod">Please fill the form to change your password</p>
+    <form class="row g-3" action="" method="POST">
+      {% csrf_token %}
+      <div class="col-md-12">
+        <div class="form-floating">
+          <input type="password" class="form-control" id="floatingInput1" name="old-p" placeholder="Old Password"
+            required />
+          <label for="floatingInput1">Old Password</label>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-floating">
+          <input type="password" class="form-control" id="floatingInput2" name="new-p" placeholder="New Password"
+            required />
+          <label for="floatingInput2">New Password</label>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-floating">
+          <input type="password" class="form-control" id="floatingInput3" name="new-p-c"
+            placeholder="Confirm New Password" required />
+          <label for="floatingInput3">Confirm New Password</label>
+        </div>
+      </div>
+      <div class="form-buttons">
+        <div style="margin-right: 20px">
+          <button type="submit" class="btn btn-1">Change</button>
+        </div>
+        <div>
+          <button type="button" class="btn btn-2">Cancel</button>
+          <a href="{% url 'home' %}" id="cancel" class="hider"></a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+{% endblock c %}
+
+{% block javascript %}
+<script>
+  document.querySelector(".btn-2").addEventListener("click", () => {
+    document.getElementById('cancel').click()
+  });
+</script>
+{% endblock javascript %}

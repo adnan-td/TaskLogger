@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/utils.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <title>Scheduler</title>
+</head>
+{% if page == 'login' %}
+
+<body class="body-login bg-dark">
+  <div class="main-login ">
+    <div class="details">
+      <h1>
+        Scheduler
+      </h1>
+      <p>
+        Join Today To stay informed about all your upcoming classes, exams, events and more
+      </p>
+    </div>
+    <div class="login-form">
+      <form class="form-input" action="" method="POST">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <button type="submit" class="btn-2">Log In</button>
+      </form>
+      {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+        <li style="color: red; list-style: none;">{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      <hr bg-dark>
+      <div class="inform">
+        <li class="btn"><a href="{% url 'signup' %}">Create Your Account</a></li>
+      </div>
+    </div>
+  </div>
+</body>
+<div class="foot">
+  Created by Adnan Shabbir Husain, B-tech CSE Student of RCOEM<br>
+  Adnan &copy; 2022
+</div>
+
+{% elif page == 'signup' %}
+<style>
+  @media only screen and (max-width:900px) {
+    body {
+      overflow: auto;
+    }
+
+    .main-login {
+      height: 700px;
+    }
+
+    .foot {
+      height: 70px;
+      min-height: 0px;
+    }
+
+    .details h1 {
+      text-align: center;
+    }
+
+    .details p {
+      text-align: center;
+    }
+
+    .foot {
+      visibility: hidden;
+    }
+  }
+</style>
+
+<body class="body-login bg-dark">
+  <div class="main-login ">
+    <div class="details">
+      <h1>
+        Scheduler
+      </h1>
+      <p>
+        Join Today To stay informed about all your upcoming classes, exams, events and more
+      </p>
+    </div>
+    <div class="login-form">
+      <form class="form-input" action="" method="POST" style="width: 500px;">
+        {% csrf_token %}
+        {{form.as_table}}
+        <button type="submit" class="btn-2">Sign Up</button>
+      </form>
+      {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+        <li style="color: red; list-style: none;">{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      <hr bg-dark>
+      <p style="font-size: larger; text-align: center; margin-top: 15px;">
+        Already signed up yet?
+      </p>
+
+      <div class="inform">
+        <li class="btn"><a href="{% url 'login_user' %}">Login</a></li>
+      </div>
+    </div>
+  </div>
+</body>
+<div class="foot">
+  Created by Adnan Shabbir Husain, B-tech CSE Student of RCOEM<br>
+  Adnan &copy; 2022
+</div>
+
+{% else %}
+
+<style>
+  @media only screen and (max-width:900px) {
+    body {
+      overflow: auto;
+    }
+
+    .main-login {
+      height: 700px;
+    }
+
+    .foot {
+      height: 70px;
+      min-height: 0px;
+    }
+
+    .details h1 {
+      text-align: center;
+    }
+
+    .details p {
+      text-align: center;
+    }
+
+    .foot {
+      visibility: hidden;
+    }
+  }
+
+  @media only screen and (max-width:600px) {
+
+    .login-form {
+      width: 85vw;
+    }
+
+    .login-form form {
+      width: 75vw;
+    }
+
+    .login-form form select {
+      margin: 10px 0;
+      width: 85vw;
+    }
+
+    .login-form form input,
+    textarea {
+      width: calc(85vw - 35px);
+    }
+
+    .btn-2 {
+      width: 85vw;
+    }
+  }
+</style>
+
+<body class="body-login bg-dark">
+  <div class="main-login ">
+    <div class="details">
+      <h1>
+        Scheduler
+      </h1>
+      <p>
+        Join Today To stay informed about all your upcoming classes, exams, events and more
+      </p>
+    </div>
+    <div class="login-form">
+      <form class="form-input" action="" method="POST" style="width: 500px;">
+        {% csrf_token %}
+        {{form.as_table}}
+        <button type="submit" class="btn-2">Register</button>
+      </form>
+      {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+        <li style="color: red; list-style: none;">{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      <p>
+        If you can not find your section, please create it here <br>
+      </p>
+      <a href="{% url 'create-section' %}" class="btn-2"
+        style="text-decoration: none; text-align: center; padding: 14px;">
+        Create Your Section</a>
+    </div>
+  </div>
+</body>
+<div class="foot">
+  Created by Adnan Shabbir Husain, B-tech CSE Student of RCOEM<br>
+  Adnan &copy; 2022
+</div>
+
+{% endif %}
+
+</html>

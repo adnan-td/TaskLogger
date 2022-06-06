@@ -1,0 +1,69 @@
+{% extends 'base/main.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/forms.css' %}">
+<style>
+	.btn-1 {
+		width: auto;
+	}
+</style>
+{% endblock css %}
+
+{% block c %}
+
+
+<div class="form-main form-main-pe">
+	<div class="formaddscript">
+		<p class="add-mod">Details</p>
+		<form class="row g-3" action="" method="POST">
+			{% csrf_token %}
+			<div class="col-md-12">
+				<select class="form-select" aria-label="Default select example" name="sect" id="formselect" required>
+					<option value="">Select your Section</option>
+					{% for sect in sections %}
+					{% if section.id != sect.id %}
+					<option value="{{sect.id}}">{{sect.section}} of {{sect.branch}}: {{sect.college}}</option>
+					{% else %}
+					<option selected value="{{sect.id}}">{{sect.section}} of {{sect.branch}}: {{sect.college}}</option>
+					{% endif %}
+					{% endfor%}
+				</select>
+			</div>
+			<div class="col-md-12">
+				<div class="form-floating">
+					<input type="text" class="form-control" id="floatingInput1" name="name" placeholder="Name"
+						value="{{student.student_name}}" required />
+					<label for="floatingInput1">Name</label>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="form-floating">
+					<input type="number" class="form-control" id="floatingInput1" name="rollno" placeholder="Roll No"
+						value="{{student.student_rollno}}" required />
+					<label for="floatingInput1">Roll No</label>
+				</div>
+			</div>
+			<div class="form-buttons">
+				<div style="margin-right: 20px">
+					<button type="submit" class="btn btn-1">Change</button>
+				</div>
+				<div>
+					<button type="button" class="btn btn-2">Cancel</button>
+					<a href="{% url 'home' %}" id="cancel" class="hider"></a>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+
+{% endblock c %}
+
+{% block javascript %}
+<script>
+	document.querySelector(".btn-2").addEventListener("click", () => {
+		document.getElementById('cancel').click()
+	});
+</script>
+{% endblock javascript %}

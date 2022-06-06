@@ -1,0 +1,258 @@
+{% extends 'base/main.html' %}
+{% block c %}
+
+<div class="card-container">
+  <div class="card today">
+    <div class="card-header ch1">
+      Today
+    </div>
+    <div class="card-body">
+      <table class="card-table table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Title</th>
+            <th scope="col">Date and Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for event in today %}
+          <tr>
+            <td><i class="fa-solid fa-arrows-to-dot"></i></td>
+            <td class="td-title">{{event.event_name}}</td>
+            <td>On {{event.time}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card pe">
+    <div class="card-header ch1">
+      <p>Personal Events</p>
+      <a href="{% url 'student-events' student.id %}"><i class="fa-solid fa-square-pen"></i></a>
+    </div>
+    <div class="card-body">
+      <table class="card-table table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Title</th>
+            <th scope="col">Date and Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for event in studentpersonal %}
+          <tr>
+            <td><i class="fa-solid fa-arrows-to-dot"></i></td>
+            <td class="td-title">{{event.event_name}}</td>
+            <td>On {{event.date}}, {{event.time}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header ch2">
+      Monday
+    </div>
+    <div class="card-body">
+      <table class="card-table table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Title</th>
+            <th scope="col">Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for event in mon %}
+          <tr>
+            <td><i class="fa-solid fa-arrows-to-dot"></i></td>
+            <td class="td-title">{{event.event_name}}</td>
+            <td>On {{event.time}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header ch2">
+      Tuesday
+    </div>
+    <div class="card-body">
+      <table class="card-table table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Title</th>
+            <th scope="col">Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for event in tue %}
+          <tr>
+            <td><i class="fa-solid fa-arrows-to-dot"></i></td>
+            <td class="td-title">{{event.event_name}}</td>
+            <td>On {{event.time}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header ch2">
+      Wednesday
+    </div>
+    <div class="card-body">
+      <table class="card-table table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Title</th>
+            <th scope="col">Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for event in wed %}
+          <tr>
+            <td><i class="fa-solid fa-arrows-to-dot"></i></td>
+            <td class="td-title">{{event.event_name}}</td>
+            <td>On {{event.time}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header ch2">
+      Thursday
+    </div>
+    <div class="card-body">
+      <table class="card-table table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Title</th>
+            <th scope="col">Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for event in thu %}
+          <tr>
+            <td><i class="fa-solid fa-arrows-to-dot"></i></td>
+            <td class="td-title">{{event.event_name}}</td>
+            <td>On {{event.time}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header ch2">
+      Friday
+    </div>
+    <div class="card-body">
+      <table class="card-table table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Title</th>
+            <th scope="col">Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for event in fri %}
+          <tr>
+            <td><i class="fa-solid fa-arrows-to-dot"></i></td>
+            <td class="td-title">{{event.event_name}}</td>
+            <td>On {{event.time}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header ch2">
+      Saturday
+    </div>
+    <div class="card-body">
+      <table class="card-table table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Title</th>
+            <th scope="col">Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for event in sat %}
+          <tr>
+            <td><i class="fa-solid fa-arrows-to-dot"></i></td>
+            <td class="td-title">{{event.event_name}}</td>
+            <td>On {{event.time}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header ch2">
+      Sunday
+    </div>
+    <div class="card-body">
+      <table class="card-table table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Title</th>
+            <th scope="col">Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for event in sun %}
+          <tr>
+            <td><i class="fa-solid fa-arrows-to-dot"></i></td>
+            <td class="td-title">{{event.event_name}}</td>
+            <td>On {{event.time}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card sp">
+    <div class="card-header ch3">
+      Special
+    </div>
+    <div class="card-body">
+      <table class="card-table table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Title</th>
+            <th scope="col">Date and Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for event in other %}
+          <tr>
+            <td><i class="fa-solid fa-arrows-to-dot"></i></td>
+            <td class="td-title">{{event.event_name}}</td>
+            <td>On {{event.date}}, {{event.time}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock c %}
